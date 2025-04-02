@@ -1,0 +1,9 @@
+
+target/
+dbt_packages/
+logs/
+venv/
+.vscode/
+dbt.duckdb
+package-lock.yml
+.user.yml

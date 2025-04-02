@@ -1,0 +1,15 @@
+version: 2
+
+macros:
+  - name: update_edges_table_count
+    description: "Updates main edges table with count of edges. Child macro of main_edges_table_post_hook. No args."
+  - name: update_main_edges_table_stats
+    description: "Updates main edges table with stats about edge count and identifies outliers based on count of edges. Child macro of main_edges_table_post_hook. No args."
+  - name: update_main_edges_table_groups
+    description: "Updates main edges table with groups based on groupings based on directly touching nodes. Child macro of main_edges_table_post_hook. No args."
+  - name: update_main_edges_table_swap_edges
+    description: "Inserts a duplicate copy of all rows with edges swapped into main edges table. Child macro of main_edges_table_post_hook. No args."
+  - name: update_main_edges_table_group_deduplication
+    description: "Uses a self join to find the minimum group ID associated with each edge. Checks how many rows were updated, and loops continuously until no more rows are being updated. Each iteration resolves relationships between one more layer of indirect relationships. Child macro of main_edges_table_post_hook. No args."
+  - name: main_edges_table_post_hook
+    description: "Post-hook for main edges table model. Runs all other macros in this directory to perform DML statements that could not be executed in a single select statement in the model. No args."
