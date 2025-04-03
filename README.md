@@ -8,7 +8,7 @@ The output is a table that groups together all known identifiers that have touch
 
 ### Quickstart
 
-![image](../assets/demo.gif)
+![image](assets/demo.gif)
 
 This project is self-contained and will run entirely on your local machine with the dbt-duckdb adapter. Simply spin up a virtual environment, install dependencies, and run dbt. You can then explore the resultant database artifacts with duckcli.
 
@@ -36,7 +36,7 @@ This POC represents a common scenario in marketing and web analytics:
 
 Take this example:
 
-![image](../assets/identity_groups.jpg)
+![image](assets/identity_groups.jpg)
 
 This represents two simple ID groups. You can follow the arrows and see that all of these nodes are related, but some of them don't touch the first node.
 
@@ -78,9 +78,13 @@ This represents two simple ID groups. You can follow the arrows and see that all
 
     Here's what that looks like with the sample data:
 
-    ![image](../assets/group_dedupe.jpg)
+    ![image](assets/group_dedupe.jpg)
 
 4. Main edges table is used to create a table of resolved groups.
+
+    You can see the dbt lineage here - note that this doesn't include actions taken by the post-hook macros on stg_identity_graph__main_edges_table, but those are all documented in the macros/ folder.
+
+    ![image](assets/dbt_lineage.png)
 
 ### Variables
 
