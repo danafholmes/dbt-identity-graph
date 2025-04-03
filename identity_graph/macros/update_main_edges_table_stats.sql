@@ -39,15 +39,15 @@ from (
     int_2,
     z_score,
     case
-      when ABS(z_score) > 3 then 'Outlier' -- Mark as 'Outlier' if z_score is greater than 3
-      else 'Normal' -- Otherwise, mark as 'Normal'
+      when abs(z_score) > {{ var("z_score_threshold", 3) }} then 'Outlier'
+      else 'Normal'
   end
     as anomaly
   from
     z_scores ) b
 where
   a.int_1 = b.int_1
-  and a.int_2 = b.int_2; -- Match records based on int_1 and int_2
+  and a.int_2 = b.int_2;
 
     {% endset %}
 

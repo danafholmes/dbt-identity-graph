@@ -20,3 +20,7 @@ clean-targets:
 models:
   identity_graph:
     +tags: ['identity_graph']
+
+vars:
+  z_score_threshold: 0
+  window: 720
